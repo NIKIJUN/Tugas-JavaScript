@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Event Handler</title>
+</head>
+<body>
+    <h2>Letakan Kursor ke masing masing kotak untuk melihat gambar</h2>
+    <div id="div1">
+        Hewan Bebek
+    </div>
+    <div id="div2">
+        Hewan Kucing
+    </div>
+    <div id="div3">
+        Hewan Ayam
+    </div>
+
+    
+    <audio id="audio-player" controls style="display:none;"></audio>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        
+        $("document").ready(function(){
+            $("#div1").mouseover(function(){
+                $(this).css({
+                    background: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/White_domesticated_duck%2C_stretching.jpg/1200px-White_domesticated_duck%2C_stretching.jpg')"
+                });
+                playSound ('https://pixabay.com/sounds/2020/10/05/23/33/animal-sound-5636329_1280.mp3');
+            });
+            $("#div2").mouseover(function(){
+                $(this).css({
+                    background: "url('https://unair.ac.id/wp-content/uploads/2022/08/kucing.jpg')"
+                });
+                playSound('https://pixabay.com/sounds/2018/12/16/06/51/cat-3876914_1280.mp3');
+            });
+            $("#div3").mouseover(function(){
+                $(this).css({
+                    background: "url('https://cdn-brilio-net.akamaized.net/webp/news/2020/09/14/191879/1309261-foto-editan-ayam.jpg')"
+                });
+                playSound('https://pixabay.com/sound-effects/chicken-56092/');
+            });
+            
+            $("div").mouseout(function(){
+                $(this).css({
+                    background: "green"
+                });
+            });
+        });
+
+        
+        function playSound(soundUrl) {
+            var audioPlayer = document.getElementById('audio-player');
+            audioPlayer.src = soundUrl;
+            audioPlayer.play();
+        }
+    </script>
+</body>
+</html>
